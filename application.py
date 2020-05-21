@@ -1,7 +1,7 @@
 from flask import Flask
 from pyinstrument import Profiler
 import time
-
+import pyodbc
 
 app = Flask(__name__)
 
@@ -31,7 +31,16 @@ def after_request(response):
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    server = 'tcp:nhtesting.database.windows.net'
+    database = 'nhalangulo'
+    username = 'alangulo@nhalangulo'
+    password = 'Albus19878712'
+
+    driver = sorted(pyodbc.drivers()).pop()
+    cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+    return func.HttpResponse(f"Hello {cnxn} !")
+
+  
 
     
 @app.route('/sleep')
