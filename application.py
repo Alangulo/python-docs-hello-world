@@ -36,8 +36,8 @@ def hello_world():
     username = 'alangulo@nhalangulo'
     password = 'Albus19878712'
 
-    driver = sorted(pyodbc.drivers()).pop()
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
     return func.HttpResponse(f"Hello {cnxn} !")
 
   
