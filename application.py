@@ -31,13 +31,6 @@ def after_request(response):
 
 @app.route('/')
 def hello_world():
-    server = 'tcp:nhtesting.database.windows.net'
-    database = 'nhalangulo'
-    username = 'alangulo@nhalangulo'
-    password = 'Albus19878712'
-
-    cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-    cursor = cnxn.cursor()
     return "HEllo"
 
   
